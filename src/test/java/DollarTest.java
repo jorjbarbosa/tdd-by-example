@@ -1,22 +1,22 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DollarTest {
     @Test
     public void testMultiplication() {
         Dollar five = new Dollar(5);
-        Dollar product = five.times(2);
-        assertEquals(10, product.amount);
-        product = five.times(3);
-        assertEquals(15, product.amount);
+        assertEquals(new Dollar(10), five.times(2));
+        assertEquals(new Dollar(15), five.times(3));
     }
 
     @Test
     public void testEquality() {
-        assertEquals(new Dollar(5), new Dollar(5));
-        assertNotEquals(new Dollar(5), new Dollar(6));
+        assertTrue(new Dollar(5).equals(new Dollar(5)));
+        assertFalse(new Dollar(5).equals(new Dollar(6)));
     }
 }
 
